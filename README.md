@@ -4,6 +4,7 @@ BTSE Client C# .Net Core
 Client for BTSE API
 
 Both spot and futures are supported
+REST only as of now. No Web Sockets support.
 
 How to use: 
 
