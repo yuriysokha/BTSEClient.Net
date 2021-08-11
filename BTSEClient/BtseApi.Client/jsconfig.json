@@ -1,0 +1,7 @@
+{
+  "ApiKey": "Your BTSE Production ApiKey Here",
+  "Secretkey": "Your BTSE Production Secretkey Here",
+  "ApiKeyTestnet": "Your BTSE ApiKeyTestnet Here",
+  "SecretkeyTestnet": "Your BTSE SecretkeyTestnet Here",
+  "IsProduction": false
+}
