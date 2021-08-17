@@ -6,8 +6,8 @@ namespace BtseApi.Client.DataClasses.Spot
 {
     public class PlaceOrderResponse
     {
-        public string Status { get; set; }
-        public string OrderType { get; set; }
+        public int Status { get; set; }
+        public int OrderType { get; set; }
         public string OrderId { get; set; }
         public long TimeStamp { get; set; }
         public bool Trigger { get; set; }
@@ -21,7 +21,7 @@ namespace BtseApi.Client.DataClasses.Spot
         public string Side { get; set; }
         public decimal Size { get; set; }
         public decimal Stealth { get; set; }
-        public decimal StopPrice { get; set; }
+        public decimal? StopPrice { get; set; }
         public string Symbol { get; set; }
         public string Time_in_force { get; set; }
         public decimal TrailValue { get; set; }

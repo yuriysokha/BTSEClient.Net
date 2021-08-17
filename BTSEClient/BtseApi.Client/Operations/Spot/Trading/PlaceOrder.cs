@@ -42,12 +42,12 @@ namespace BtseApi.Client.Operations.Spot.Trading
             return response.Content;
         }
 
-        public static PlaceOrderResponse ExecuteObj(OrderRequest info)
+        public static List<PlaceOrderResponse> ExecuteObj(OrderRequest info)
         {
             var json = Execute(info);
 
             var result =
-                JsonSerializer.Deserialize<PlaceOrderResponse>(json,
+                JsonSerializer.Deserialize<List<PlaceOrderResponse>>(json,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             return result;
