@@ -1,7 +1,7 @@
 {
-  "ApiKey": "Your BTSE Production ApiKey Here",
-  "Secretkey": "Your BTSE Production Secretkey Here",
-  "ApiKeyTestnet": "Your BTSE ApiKeyTestnet Here",
-  "SecretkeyTestnet": "Your BTSE SecretkeyTestnet Here",
+  "ApiKey": "0615a93482b7c0824bbd514309e85b22202fa6350b097594e701763bba87fd74",
+  "Secretkey": "8276bb50a762b7913560915896471ec28025eeee54c53089ce7c758973cd8191",
+  "ApiKeyTestnet": "11694cb6016ce76c08935a8a7ae7c54e6c7ccf5d5fec3a9b8d58ad57f9329d65",
+  "SecretkeyTestnet": "fb78c7661cf77773ad0e2599439de30025107bbe5ccca2f8356488c752f61f77",
   "IsProduction": false
 }
