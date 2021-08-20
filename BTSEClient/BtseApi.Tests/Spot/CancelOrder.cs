@@ -10,7 +10,6 @@ namespace BtseApi.Tests.Spot
         [Test]
         public void CancelOrderObj()
         {
-
             // first: place new limit order
 
             var info = new OrderRequest();
@@ -31,7 +30,6 @@ namespace BtseApi.Tests.Spot
             info.type = "LIMIT"; //"LIMIT";
 
             var result = Client.Operations.Spot.Trading.Order.ExecuteObj(info);
-
 
             var cancelResult = 
                 Client.Operations.Spot.Trading.
