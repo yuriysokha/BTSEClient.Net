@@ -12,19 +12,10 @@ using BtseApi.Client.Helpers;
 
 namespace BtseApi.Client.Operations.Spot.Trading
 {
-    public static class Order
+    public static class IndexOrder
     {
-        private static string urlPath = "/api/v3.2/order";
+        private static string urlPath = "/api/v3.2/order/peg";
 
-        /// <summary>
-        /// Place an order. Order types can be either Limit,
-        /// Market or OCO by specifying different parameter types
-        /// </summary>
-        /// <param name="info">Support for Limit order, Market order, OCO order.</param>
-        /// <returns>
-        /// Place an order. Order types can be either Limit,
-        /// Market or OCO by specifying different parameter types
-        /// </returns>
         public static string Execute(OrderRequest info)
         {
             var client = Helper.GetClient(urlPath, true);
@@ -51,15 +42,6 @@ namespace BtseApi.Client.Operations.Spot.Trading
             return response.Content;
         }
 
-        /// <summary>
-        /// Place an order. Order types can be either Limit,
-        /// Market or OCO by specifying different parameter types
-        /// </summary>
-        /// <param name="info">Support for Limit order, Market order, OCO order.</param>
-        /// <returns>
-        /// Place an order. Order types can be either Limit,
-        /// Market or OCO by specifying different parameter types
-        /// </returns>
         public static List<PlaceOrderResponse> ExecuteObj(OrderRequest info)
         {
             var json = Execute(info);
