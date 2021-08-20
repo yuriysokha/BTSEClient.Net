@@ -16,6 +16,19 @@ namespace BtseApi.Client.Operations.Spot.Trading
     {
         private static string urlPath = "/api/v3.2/order";
 
+        /// <summary>
+        /// Amend a Limit or Trigger order. 
+        /// If an order has been triggered, trigger price cannot be further modified.
+        /// If order is a POST-ONLY order and `slide` option is set to true, 
+        /// then the price will set to the best bid/ask.
+        /// </summary>
+        /// <param name="info">Amend Order information</param>
+        /// <returns>
+        /// Amend a Limit or Trigger order. 
+        /// If an order has been triggered, trigger price cannot be further modified.
+        /// If order is a POST-ONLY order and `slide` option is set to true, 
+        /// then the price will set to the best bid/ask.
+        /// </returns>
         public static string Execute(AmendOrderRequest info)
         {
             var client = Helper.GetClient(urlPath, true);
@@ -42,6 +55,19 @@ namespace BtseApi.Client.Operations.Spot.Trading
             return response.Content;
         }
 
+        /// <summary>
+        /// Amend a Limit or Trigger order. 
+        /// If an order has been triggered, trigger price cannot be further modified.
+        /// If order is a POST-ONLY order and `slide` option is set to true, 
+        /// then the price will set to the best bid/ask.
+        /// </summary>
+        /// <param name="info">Amend Order information</param>
+        /// <returns>
+        /// Amend a Limit or Trigger order. 
+        /// If an order has been triggered, trigger price cannot be further modified.
+        /// If order is a POST-ONLY order and `slide` option is set to true, 
+        /// then the price will set to the best bid/ask.
+        /// </returns>
         public static List<PlaceOrderResponse> ExecuteObj(AmendOrderRequest info)
         {
             var json = Execute(info);
