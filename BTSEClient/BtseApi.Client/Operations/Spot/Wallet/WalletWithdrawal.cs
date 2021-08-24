@@ -12,12 +12,12 @@ using BtseApi.Client.Helpers;
 
 namespace BtseApi.Client.Operations.Spot.Wallet
 {
-    public static class CreateWalletAddress
+    public static class WalletWithdrawal
     {
-        private static string urlPath = "/api/v3.2/user/wallet/address";
+        private static string urlPath = "/spot/api/v3.2/user/wallet/withdraw";
 
         public static string Execute(
-            string currency)
+            WalletWithdrawalRequest info)
         {
             var client = Helper.GetClient(urlPath, true);
 
@@ -27,9 +27,6 @@ namespace BtseApi.Client.Operations.Spot.Wallet
 
             var options = new JsonSerializerOptions();
             options.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
-
-            var info = new CreateWalletRequest();
-            info.currency = currency;
 
             var body = JsonSerializer.Serialize(info, options);
 
@@ -42,13 +39,13 @@ namespace BtseApi.Client.Operations.Spot.Wallet
             return response.Content;
         }
 
-        public static List<WalletResponse> ExecuteObj(
-            string currency)
+        public static WalletWithdrawalResponse ExecuteObj(
+            WalletWithdrawalRequest info)
         {
-            var json = Execute(currency);
+            var json = Execute(info);
 
             var result =
-                JsonSerializer.Deserialize<List<WalletResponse>>(json,
+                JsonSerializer.Deserialize<WalletWithdrawalResponse>(json,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             return result;
