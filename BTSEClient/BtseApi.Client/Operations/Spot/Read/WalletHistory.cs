@@ -16,6 +16,9 @@ namespace BtseApi.Client.Operations.Spot.Read
     {
         private static string urlPath = "/api/v3.2/user/wallet_history";
 
+        /// <summary>
+        /// Retrieves user's wallet history records
+        /// </summary>
         public static string Execute(
             long? startTime = null,
             long? endTime = null,
@@ -27,18 +30,42 @@ namespace BtseApi.Client.Operations.Spot.Read
             var request = new RestRequest(Method.GET);
             Helper.AddRequestAuth(request, urlPath, string.Empty);
 
+
+            if (startTime != null)
+            {
+                request.AddParameter("startTime", startTime, ParameterType.QueryString);
+            }
+
+            if (endTime != null)
+            {
+                request.AddParameter("endTime", endTime, ParameterType.QueryString);
+            }
+
+            if (count != null)
+            {
+                request.AddParameter("count", count, ParameterType.QueryString);
+            }
+
+            if (currency != null)
+            {
+                request.AddParameter("currency", currency, ParameterType.QueryString);
+            }
+
             IRestResponse response = client.Execute(request);
 
             return response.Content;
         }
 
+        /// <summary>
+        /// Retrieves user's wallet history records
+        /// </summary>
         public static List<WalletHistoryResponse> ExecuteObj(
             long? startTime = null,
             long? endTime = null,
             int? count = null,
             string currency = null)
         {
-            var json = Execute();
+            var json = Execute(startTime, endTime, count, currency);
 
             var result =
                 JsonSerializer.Deserialize<List<WalletHistoryResponse>>(json,

@@ -10,36 +10,34 @@ using BtseApi.Client.DataClasses.Spot;
 using BtseApi.Client.ApiSettings;
 using BtseApi.Client.Helpers;
 
-namespace BtseApi.Client.Operations.Spot.Read
+namespace BtseApi.Client.Operations.Spot.Wallet
 {
-    public static class WalletInformation
+    public static class GetWalletAddress
     {
-        private static string urlPath = "/api/v3.2/user/wallet";
+        private static string urlPath = "/api/v3.2/user/wallet/address";
 
-        /// <summary>
-        /// Gets user wallet balances
-        /// </summary>
-        public static string Execute()
+        public static string Execute(
+            string currency)
         {
             var client = Helper.GetClient(urlPath, true);
 
             var request = new RestRequest(Method.GET);
             Helper.AddRequestAuth(request, urlPath, string.Empty);
 
+            request.AddParameter("currency", currency, ParameterType.QueryString);
+
             IRestResponse response = client.Execute(request);
 
             return response.Content;
         }
 
-        /// <summary>
-        /// Gets user wallet balances
-        /// </summary>
-        public static List<FiatMdl> ExecuteObj()
+        public static List<WalletResponse> ExecuteObj(
+            string currency)
         {
-            var json = Execute();
+            var json = Execute(currency);
 
             var result =
-                JsonSerializer.Deserialize<List<FiatMdl>>(json,
+                JsonSerializer.Deserialize<List<WalletResponse>>(json,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             return result;
