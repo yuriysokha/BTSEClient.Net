@@ -12,14 +12,14 @@ using BtseApi.Client.Helpers;
 
 namespace BtseApi.Client.Operations.Futures.Trading
 {
-    public static class SetRiskLimit
+    public static class SettleIn
     {
-        private static string urlPath = "/api/v2.1/risk_limit";
+        private static string urlPath = "/api/v2.1/settle_in";
 
         /// <summary>
-        /// Changes risk limit for the specified market
+        /// Sets the currency to settle the current position in
         /// </summary>
-        public static string Execute(RiskLimitForm info)
+        public static string Execute(SettleInForm info)
         {
             var client = Helper.GetClient(urlPath);
 
@@ -41,20 +41,6 @@ namespace BtseApi.Client.Operations.Futures.Trading
             IRestResponse response = client.Execute(request);
 
             return response.Content;
-        }
-
-        /// <summary>
-        /// Changes risk limit for the specified market
-        /// </summary>
-        public static SimpleResponse ExecuteObj(RiskLimitForm info)
-        {
-            var json = Execute(info);
-
-            var result =
-                JsonSerializer.Deserialize<SimpleResponse>(json,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            return result;
         }
     }
 }
