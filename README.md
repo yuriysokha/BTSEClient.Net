@@ -17,14 +17,3 @@ How to install and use from Nuget Pakcge Manager
 2. Edit jsconfig.json file.
 3. Start using BTSE API. For example: 
    var info = BtseApi.Client.Operations.Spot.PublicEndpoints.MarketSummary.ExecuteObj("BTC-USD");
-
-If you use Nuget Package then please add file "jsconfig.json" to the root folder of solution and makesettings as "Always Copy".
-Content of file:
-
-{
-  "ApiKey": "You key here",
-  "Secretkey": "You key here",
-  "ApiKeyTestnet": "You key here",
-  "SecretkeyTestnet": "You key here",
-  "IsProduction": false
-}
