@@ -31,7 +31,7 @@ namespace BtseApi.Client.Operations.Futures.Read
 
             var body = String.Format("{{\"symbol\": \"{0}\",\"currency\": \"{1}\"}}", symbol, currency);
 
-            request.AddBody(body);
+            request.AddJsonBody(body);
 
             Helper.AddRequestAuth(request, urlPath, body);
 

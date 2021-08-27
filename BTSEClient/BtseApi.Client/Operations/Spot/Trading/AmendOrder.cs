@@ -41,7 +41,7 @@ namespace BtseApi.Client.Operations.Spot.Trading
 
             var body = JsonSerializer.Serialize(info, options);
 
-            request.AddBody(body);
+            request.AddJsonBody(body);
 
             Helper.AddRequestAuth(request, urlPath, body);
 
