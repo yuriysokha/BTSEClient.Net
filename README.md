@@ -5,6 +5,7 @@ Client for BTSE API
 
 BTSE API docs:
 https://www.btse.com/apiexplorer/futures/
+
 https://www.btse.com/apiexplorer/spot/
 
 Both spot and futures are supported
