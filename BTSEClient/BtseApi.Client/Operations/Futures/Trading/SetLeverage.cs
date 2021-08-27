@@ -43,6 +43,9 @@ namespace BtseApi.Client.Operations.Futures.Trading
             return response.Content;
         }
 
+        /// <summary>
+        /// Change leverage values for the specified market
+        /// </summary>
         public static SimpleResponse ExecuteObj(LeverageForm info)
         {
             var json = Execute(info);
