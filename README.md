@@ -3,6 +3,10 @@ BTSE Client C# .Net Core
 
 Client for BTSE API
 
+BTSE API docs:
+https://www.btse.com/apiexplorer/futures/
+https://www.btse.com/apiexplorer/spot/
+
 Both spot and futures are supported
 REST only as of now. No Web Sockets support.
 
@@ -17,3 +21,50 @@ How to install and use from Nuget Pakcge Manager
 2. Edit jsconfig.json file.
 3. Start using BTSE API. For example: 
    var info = BtseApi.Client.Operations.Spot.PublicEndpoints.MarketSummary.ExecuteObj("BTC-USD");
+
+See usage examples in Tests.
+
+Futures Market API:
+
+- AmendOrder
+- CancelAllAfter
+- CancelOrder
+- ClosePosition
+- Fees
+- FillsHistory
+- FundingHistory
+- GetsOrderBook
+- HighLevelMarketOverview
+- IndexPegOrder
+- LimitMarket
+- Ohlcv
+- OpenOrders
+- Position
+- PriceIndex
+- SetLeverage
+- SetRiskLimit
+- SettleIn
+- SettlePosition
+- TradeHistory
+- TransferWallet
+- Wallet
+- WalletHistory
+- WalletMarginInformation
+
+Futures Market API:
+- AmendOrder
+- CancelAllAfter
+- CancelOrder
+- CreateWalletAddress
+- Fees
+- GetWalletAddress
+- MarketSummary
+- Ohlcv
+- OpenOrders
+- OrderBook
+- PlaceIndexOrder
+- PlaceOrder
+- TradeHistory
+- WalletHistory
+- WalletInformation
+- WalletWithdrawal
