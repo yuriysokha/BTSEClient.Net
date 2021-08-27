@@ -17,11 +17,10 @@ namespace BtseApi.Client.Operations.Futures.Trading
         private static string urlPath = "/api/v2.1/order";
 
         /// <summary>
-        /// Sets the currency to settle the current position in
+        /// Amend a Limit or Trigger order. 
+        /// If an order has been triggered, trigger price cannot be further modified.
+        /// If order is a POST-ONLY order and `slide` option is set to true, then the price will set to the best bid/ask.
         /// </summary>
-        /// <param name="symbol">Symbol</param>
-        /// <param name="currency">Currency</param>
-        /// <returns>Sets the currency to settle the current position in</returns>
         public static string Execute(AmendOrderForm info)
         {
             var client = Helper.GetClient(urlPath);
@@ -29,13 +28,14 @@ namespace BtseApi.Client.Operations.Futures.Trading
             var request = new RestRequest(Method.PUT);
             request.RequestFormat = DataFormat.Json;
 
-            var body = JsonSerializer.Serialize(info);
+            var options = new JsonSerializerOptions();
+            options.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
 
-            request.AddBody(body);
+            var body = JsonSerializer.Serialize(info, options);
+
+            request.AddJsonBody(body);
 
             Helper.AddRequestAuth(request, urlPath, body);
-
-            var st = request.Body;
 
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Accept", "application/json");
@@ -45,6 +45,11 @@ namespace BtseApi.Client.Operations.Futures.Trading
             return response.Content;
         }
 
+        /// <summary>
+        /// Amend a Limit or Trigger order. 
+        /// If an order has been triggered, trigger price cannot be further modified.
+        /// If order is a POST-ONLY order and `slide` option is set to true, then the price will set to the best bid/ask.
+        /// </summary>
         public static AmendOrderResponse ExecuteObj(AmendOrderForm info)
         {
             var json = Execute(info);

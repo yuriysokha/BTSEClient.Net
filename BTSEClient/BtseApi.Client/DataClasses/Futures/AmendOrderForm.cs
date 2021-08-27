@@ -28,7 +28,7 @@ namespace BtseApi.Client.DataClasses.Futures
         /// Placeholder to set value based on the type selected. 
         /// (eg. if type is PRICE, then value input would amend price)
         /// </summary>
-        public string Value { get; set; }
+        public decimal Value { get; set; }
 
         /// <summary>
         /// Client order ID

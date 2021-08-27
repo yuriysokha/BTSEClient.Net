@@ -69,7 +69,7 @@ namespace BtseApi.Client.Operations.Futures.Read
         /// <param name="orderId">Each order has it's own orderID</param>
         /// <param name="clOrderId">When making an order, user can define what clOrderID they want to use.</param>
         /// <returns></returns>
-        public static List<OrderResponse> ExecuteObj(
+        public static List<OpenOrderResponse> ExecuteObj(
             string symbol = null,
             string orderId = null,
             string clOrderId = null
@@ -78,7 +78,7 @@ namespace BtseApi.Client.Operations.Futures.Read
             var json = Execute(symbol, orderId, clOrderId);
 
             var result =
-                JsonSerializer.Deserialize<List<OrderResponse>>(json,
+                JsonSerializer.Deserialize<List<OpenOrderResponse>>(json,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             return result;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BtseApi.Client.DataClasses.Futures
 {
-    public class OrderResponse
+    public class ClosePositionResponse
     {
         /// <summary>
         /// 2: ORDER_INSERTED = Order is inserted successfully
@@ -26,7 +26,7 @@ namespace BtseApi.Client.DataClasses.Futures
         /// 101: FUTURES_ORDER_PRICE_OUTSIDE_LIQUIDATION_PRICE = Futures order is outside of liquidation price
         /// 1: MARKET_UNAVAILABLE = Futures market is unavailable
         /// </summary>
-        public int status { get; set; }
+        public string status { get; set; }
 
         public string symbol { get; set; }
 
@@ -36,14 +36,12 @@ namespace BtseApi.Client.DataClasses.Futures
         /// 80: peg order
         /// </summary>
         public int orderType { get; set; }
+
         public decimal price { get; set; }
 
-        /// <summary>
-        /// BUY
-        /// </summary>
         public string side { get; set; }
-        
-        public int size { get; set; }
+
+        public decimal size { get; set; }
 
         /// <summary>
         /// BTSE internal Order ID
@@ -68,12 +66,12 @@ namespace BtseApi.Client.DataClasses.Futures
         /// <summary>
         /// Average fill price
         /// </summary>
-        public decimal? avgFillPrice { get; set; }
+        public decimal avgFilledPrice { get; set; }
 
         /// <summary>
         /// Fill size
         /// </summary>
-        public decimal? fillSize { get; set; }
+        public decimal fillSize { get; set; }
 
         /// <summary>
         /// user defined id for the order (maximum 64 characters)

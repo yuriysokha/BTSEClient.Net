@@ -42,5 +42,28 @@ namespace BtseApi.Tests.Spot
 
             var result = Client.Operations.Spot.Trading.Order.ExecuteObj(info);
         }
+
+
+        [Test]
+        public void TestBuyDollars()
+        {
+            decimal amountinDollars = 17;
+
+            var marketInfo = Client.Operations.Spot.PublicEndpoints.
+                MarketSummary.ExecuteObj("BTC-USD");
+
+            var amountInBtc = amountinDollars / marketInfo[0].Last;
+
+            var roundUpAmount = Math.Truncate(amountInBtc * 100000) / 100000 + 0.00001m;
+
+            var info = new OrderRequest();
+            info.side = "SELL";
+            info.size = roundUpAmount;
+            info.symbol = "BTC-USD";
+            info.txType = "LIMIT";
+            info.type = "MARKET"; //"LIMIT";
+
+            var result = Client.Operations.Spot.Trading.Order.ExecuteObj(info);
+        }
     }
 }
